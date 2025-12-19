@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+  <channel>
+    <title>Misc Pods (Private)</title>
+    <link>https://RVKDPod.github.io/personal-podcasts/feeds/misc.xml</link>
+    <description>Private Misc Pods archive</description>
+    <itunes:image href="https://RVKDPod.github.io/personal-podcasts/artwork/misc.jpg"/>
+    <item>
+      <title>The Big Lie - Stone Choir</title>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/misc/The Big Lie - Stone Choir.m4a" type="audio/mp4"/>
+      <guid>misc-The Big Lie - Stone Choir.m4a</guid>
+    </item>
+  </channel>
+</rss>

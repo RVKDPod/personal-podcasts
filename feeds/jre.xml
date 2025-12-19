@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+  <channel>
+    <title>Joe Rogan Experience (Private)</title>
+    <link>https://RVKDPod.github.io/personal-podcasts/feeds/jre.xml</link>
+    <description>Private JRE archive</description>
+    <itunes:image href="https://RVKDPod.github.io/personal-podcasts/artwork/jre.jpg"/>
+  </channel>
+</rss>
