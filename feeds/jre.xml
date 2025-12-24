@@ -5,5 +5,15 @@
     <link>https://RVKDPod.github.io/personal-podcasts/feeds/jre.xml</link>
     <description>Private JRE archive</description>
     <itunes:image href="https://RVKDPod.github.io/personal-podcasts/artwork/jre.jpg"/>
+    <item>
+      <title>The Joe Rogan Experience – #108 – Joey Diaz, Brian Redban</title>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/jre/The Joe Rogan Experience – #108 – Joey Diaz, Brian Redban.mp3" type="audio/mpeg"/>
+      <guid>jre-The Joe Rogan Experience – #108 – Joey Diaz, Brian Redban.mp3</guid>
+    </item>
+    <item>
+      <title>The Joe Rogan Experience – 911 – Alex Jones, Eddie Bravo</title>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/jre/The Joe Rogan Experience – 911 – Alex Jones, Eddie Bravo.mp3" type="audio/mpeg"/>
+      <guid>jre-The Joe Rogan Experience – 911 – Alex Jones, Eddie Bravo.mp3</guid>
+    </item>
   </channel>
 </rss>
