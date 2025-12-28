@@ -6,9 +6,29 @@
     <description>Private Misc Pods archive</description>
     <itunes:image href="https://RVKDPod.github.io/personal-podcasts/artwork/misc.jpg"/>
     <item>
+      <title>Info Wars - Feb 21 2011</title>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/misc/Info Wars - Feb 21 2011.mp3" type="audio/mpeg"/>
+      <guid>misc-Info Wars - Feb 21 2011.mp3</guid>
+    </item>
+    <item>
+      <title>Info Wars - Kanye</title>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/misc/Info Wars - Kanye.mp3" type="audio/mpeg"/>
+      <guid>misc-Info Wars - Kanye.mp3</guid>
+    </item>
+    <item>
       <title>The Big Lie - Stone Choir</title>
       <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/misc/The Big Lie - Stone Choir.m4a" type="audio/mp4"/>
       <guid>misc-The Big Lie - Stone Choir.m4a</guid>
+    </item>
+    <item>
+      <title>The Complete History of Rhodesia 1</title>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/misc/The Complete History of Rhodesia 1.mp3" type="audio/mpeg"/>
+      <guid>misc-The Complete History of Rhodesia 1.mp3</guid>
+    </item>
+    <item>
+      <title>The Complete History of Rhodesia 2</title>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/misc/The Complete History of Rhodesia 2.mp3" type="audio/mpeg"/>
+      <guid>misc-The Complete History of Rhodesia 2.mp3</guid>
     </item>
   </channel>
 </rss>
