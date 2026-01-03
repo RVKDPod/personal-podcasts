@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+  <channel>
+    <title>Sam-Hyde</title>
+    <link>https://RVKDPod.github.io/personal-podcasts</link>
+    <language>en-us</language>
+    <description>Private podcast feed for Sam-Hyde</description>
+    <itunes:explicit>no</itunes:explicit>
+    <itunes:image href="https://RVKDPod.github.io/personal-podcasts/artwork/Sam-Hyde.jpg"/>
+    <item>
+      <title>Black Wisdom W Myron Gaines</title>
+      <itunes:title>Black Wisdom W Myron Gaines</itunes:title>
+      <itunes:episode>1</itunes:episode>
+      <description>The Sam Hyde Show: Black Wisdom w/ Myron Gaines - 12/13/2025</description>
+      <itunes:summary>The Sam Hyde Show: Black Wisdom w/ Myron Gaines - 12/13/2025</itunes:summary>
+      <itunes:subtitle>The Sam Hyde Show: Black Wisdom w/ Myron Gaines - 12/13/2025</itunes:subtitle>
+      <guid isPermaLink="false">577d142e42a5e0a61806a09d6e809dd5</guid>
+      <pubDate>Fri, 19 Dec 2025 04:48:17 GMT</pubDate>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/Sam-Hyde/Black Wisdom W Myron Gaines.mp3" length="26901857" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>Feminist Debate</title>
+      <itunes:title>Feminist Debate</itunes:title>
+      <itunes:episode>2</itunes:episode>
+      <description>The Feminist Debate - 12/20/2025</description>
+      <itunes:summary>The Feminist Debate - 12/20/2025</itunes:summary>
+      <itunes:subtitle>The Feminist Debate - 12/20/2025</itunes:subtitle>
+      <guid isPermaLink="false">365918ce730393c13bda8e77b4106bb5</guid>
+      <pubDate>Wed, 24 Dec 2025 22:12:09 GMT</pubDate>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/Sam-Hyde/Feminist Debate.mp3" length="39598117" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>Nick Fuentes</title>
+      <itunes:title>Nick Fuentes</itunes:title>
+      <itunes:episode>3</itunes:episode>
+      <description>Sam Hyde Show: Nick Fuentes</description>
+      <itunes:summary>Sam Hyde Show: Nick Fuentes</itunes:summary>
+      <itunes:subtitle>Sam Hyde Show: Nick Fuentes</itunes:subtitle>
+      <guid isPermaLink="false">519725d577a422ebf5a9445c6c326b16</guid>
+      <pubDate>Fri, 19 Dec 2025 04:50:17 GMT</pubDate>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/Sam-Hyde/Nick Fuentes.mp3" length="28931269" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>Sports Ball W John Rocker</title>
+      <itunes:title>Sports Ball W John Rocker</itunes:title>
+      <itunes:episode>4</itunes:episode>
+      <description>The Sam Hyde Show: Sportsball w/ John Rocker - 11/22/2025</description>
+      <itunes:summary>The Sam Hyde Show: Sportsball w/ John Rocker - 11/22/2025</itunes:summary>
+      <itunes:subtitle>The Sam Hyde Show: Sportsball w/ John Rocker - 11/22/2025</itunes:subtitle>
+      <guid isPermaLink="false">52fa72f56195733c03f1c473020186fd</guid>
+      <pubDate>Fri, 19 Dec 2025 04:51:17 GMT</pubDate>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/Sam-Hyde/Sports Ball W John Rocker.mp3" length="26520420" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>This Is You</title>
+      <itunes:title>This Is You</itunes:title>
+      <itunes:episode>5</itunes:episode>
+      <description>Sam Hyde Show: This is You - 09/14/2025</description>
+      <itunes:summary>Sam Hyde Show: This is You - 09/14/2025</itunes:summary>
+      <itunes:subtitle>Sam Hyde Show: This is You - 09/14/2025</itunes:subtitle>
+      <guid isPermaLink="false">744a046f1d3e2aa7cd994ba515b493b1</guid>
+      <pubDate>Fri, 19 Dec 2025 04:52:17 GMT</pubDate>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/Sam-Hyde/This Is You.mp3" length="28284829" type="audio/mpeg"/>
+    </item>
+  </channel>
+</rss>

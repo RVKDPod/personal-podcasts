@@ -8,7 +8,7 @@ from xml.dom import minidom
 # =====================
 # CONFIG — EDIT THESE
 # =====================
-USERNAME = "RVKDPod"
+USERNAME = "RVKDPod"   # <-- your GitHub username
 REPO = "personal-podcasts"
 BASE_URL = f"https://{USERNAME}.github.io/{REPO}"
 
@@ -59,7 +59,7 @@ def load_description(show_path, audio_file):
 
     return f"Episode: {human_title(audio_file)}"
 
-def extract_date(filename, file_path):
+def extract_base_date(filename, file_path):
     match = re.search(r"(\d{4})-(\d{2})-(\d{2})", filename)
     if match:
         y, m, d = match.groups()
@@ -85,10 +85,13 @@ def generate_feed(show):
         print(f"No audio files found for {show}")
         return
 
-    rss = Element("rss", {
-        "version": "2.0",
-        "xmlns:itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd"
-    })
+    rss = Element(
+        "rss",
+        {
+            "version": "2.0",
+            "xmlns:itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd"
+        }
+    )
 
     channel = SubElement(rss, "channel")
 
@@ -121,8 +124,10 @@ def generate_feed(show):
         guid_el.text = guid_value
         guid_el.set("isPermaLink", "false")
 
-        base_date = extract_date(filename, file_path)
-	pub_date = base_date + datetime.timedelta(minutes=idx)
+        # IMPORTANT: ensure unique pubDate per episode
+        base_date = extract_base_date(filename, file_path)
+        pub_date = base_date + datetime.timedelta(minutes=idx)
+
         SubElement(item, "pubDate").text = pub_date.strftime(
             "%a, %d %b %Y %H:%M:%S GMT"
         )
