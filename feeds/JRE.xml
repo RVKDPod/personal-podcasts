@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
   <channel>
-    <title>JRE</title>
+    <title>jre</title>
     <link>https://RVKDPod.github.io/personal-podcasts</link>
     <language>en-us</language>
-    <description>Private podcast feed for JRE</description>
+    <description>Private podcast feed for jre</description>
     <itunes:explicit>no</itunes:explicit>
-    <itunes:image href="https://RVKDPod.github.io/personal-podcasts/artwork/JRE.jpg"/>
+    <itunes:image href="https://RVKDPod.github.io/personal-podcasts/artwork/jre.jpg"/>
     <item>
       <title>The Joe Rogan Experience   #1255 Alex Jones Returns</title>
       <itunes:title>The Joe Rogan Experience   #1255 Alex Jones Returns</itunes:title>
@@ -26,9 +26,9 @@ Alex Jones Returns! This was one of the over 100 episodes deleted by Spotify.</i
 Recorded on 10/09/2022
 
 Alex Jones Returns! This was one of the over 100 episodes deleted by Spotify.</itunes:subtitle>
-      <guid isPermaLink="false">3316bb8a537a7479f0658027e73c9d2b</guid>
+      <guid isPermaLink="false">f42634c6ba3b4221e503367503e955fd</guid>
       <pubDate>Wed, 24 Dec 2025 20:15:36 GMT</pubDate>
-      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/JRE/The Joe Rogan Experience - #1255 Alex Jones Returns.mp3" length="86686776" type="audio/mpeg"/>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/jre/The Joe Rogan Experience - #1255 Alex Jones Returns.mp3" length="86686776" type="audio/mpeg"/>
     </item>
     <item>
       <title>The Joe Rogan Experience – #108 – Joey Diaz, Brian Redban</title>
@@ -49,9 +49,9 @@ This was one of the over 100 episodes deleted by Spotify.</itunes:summary>
 Recorded on 5/30/2011
 
 This was one of the over 100 episodes deleted by Spotify.</itunes:subtitle>
-      <guid isPermaLink="false">562ba71d318982ffe60fbfb262b1d0e2</guid>
+      <guid isPermaLink="false">83e9ca415c4bfe8a2acc013b8e3affed</guid>
       <pubDate>Wed, 24 Dec 2025 19:51:41 GMT</pubDate>
-      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/JRE/The Joe Rogan Experience – #108 – Joey Diaz, Brian Redban.mp3" length="98077697" type="audio/mpeg"/>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/jre/The Joe Rogan Experience – #108 – Joey Diaz, Brian Redban.mp3" length="98077697" type="audio/mpeg"/>
     </item>
     <item>
       <title>The Joe Rogan Experience – 911 – Alex Jones, Eddie Bravo</title>
@@ -72,9 +72,9 @@ Alex Jones &amp; Eddie Bravo! This was one of the over 100 episodes deleted by S
 Recorded on 02/01/2017
 
 Alex Jones &amp; Eddie Bravo! This was one of the over 100 episodes deleted by Spotify.</itunes:subtitle>
-      <guid isPermaLink="false">4416ddb9e42c953bbf26f3d31d288fd5</guid>
+      <guid isPermaLink="false">119e8f04258ce9a7b13f6d7256fa4472</guid>
       <pubDate>Wed, 24 Dec 2025 19:59:20 GMT</pubDate>
-      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/JRE/The Joe Rogan Experience – 911 – Alex Jones, Eddie Bravo.mp3" length="90533473" type="audio/mpeg"/>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/jre/The Joe Rogan Experience – 911 – Alex Jones, Eddie Bravo.mp3" length="90533473" type="audio/mpeg"/>
     </item>
   </channel>
 </rss>
