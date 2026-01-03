@@ -1,3 +1,4 @@
+import re
 import os
 import hashlib
 import datetime
@@ -80,38 +81,41 @@ def generate_feed(show):
 
     for idx, filename in enumerate(audio_files, start=1):
         file_path = os.path.join(show_path, filename)
-        file_size = os.path.getsize(file_path)
-        mime = guess_mime(filename)
+	file_size = os.path.getsize(file_path)
+	mime = guess_mime(filename)
 
-        item = SubElement(channel, "item")
+	item = SubElement(channel, "item")
 
-        title = human_title(filename)
-        SubElement(item, "title").text = title
+	title = human_title(filename)
+	SubElement(item, "title").text = title
+	SubElement(item, "itunes:title").text = title
+	SubElement(item, "itunes:episode").text = str(idx)
 
-        SubElement(item, "itunes:episode").text = str(idx)
-        SubElement(item, "itunes:title").text = title
+	description = load_description(show_path, filename)
 
-        SubElement(item, "description").text = f"Episode {idx}: {title}"
+	SubElement(item, "description").text = description
+	SubElement(item, "itunes:summary").text = description
+	SubElement(item, "itunes:subtitle").text = description[:255]
 
-        guid_value = stable_guid(show, filename, file_size)
-        guid_el = SubElement(item, "guid")
-        guid_el.text = guid_value
-        guid_el.set("isPermaLink", "false")
+	guid_value = stable_guid(show, filename, file_size)
+	guid_el = SubElement(item, "guid")
+	guid_el.text = guid_value
+	guid_el.set("isPermaLink", "false")
 
-        pub_date = (now - datetime.timedelta(days=len(audio_files) - idx))
-        SubElement(item, "pubDate").text = pub_date.strftime(
-            "%a, %d %b %Y %H:%M:%S GMT"
-        )
+	pub_date = extract_date(filename, file_path)
+	SubElement(item, "pubDate").text = pub_date.strftime(
+	    "%a, %d %b %Y %H:%M:%S GMT"
+	)
 
-        enclosure_url = f"{BASE_URL}/{show_path.replace(os.sep, '/')}/{filename}"
+	enclosure_url = f"{BASE_URL}/{show_path.replace(os.sep, '/')}/{filename}"
 
-        SubElement(
-            item,
-            "enclosure",
-            url=enclosure_url,
-            length=str(file_size),
-            type=mime
-        )
+	SubElement(
+    	    item,
+    	    "enclosure",
+    	    url=enclosure_url,
+    	    length=str(file_size),
+    	    type=mime
+	)
 
     xml_bytes = pretty_xml(rss)
 
