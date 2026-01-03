@@ -1,95 +1,138 @@
 import os
-from xml.etree.ElementTree import Element, SubElement, tostring
+import hashlib
+import datetime
+from xml.etree.ElementTree import Element, SubElement, ElementTree
 from xml.dom import minidom
 
-# =========================
-# CONFIGURATION
-# =========================
-
-USERNAME = "RVKDPod"  # <-- Your GitHub username
+# =====================
+# CONFIG — EDIT THESE
+# =====================
+USERNAME = "RVKDPod"
 REPO = "personal-podcasts"
+BASE_URL = f"https://{USERNAME}.github.io/{REPO}"
 
-SHOWS = {
-    "jre": {
-        "title": "Joe Rogan Experience (Private)",
-        "desc": "Private JRE archive",
-        "art": "artwork/jre.jpg"
-    },
-    "sam-hyde": {
-        "title": "Sam Hyde (Private)",
-        "desc": "Private Sam Hyde archive",
-        "art": "artwork/sam-hyde.jpg"
-    },
-    "misc": {
-        "title": "Misc Pods (Private)",
-        "desc": "Private Misc Pods archive",
-        "art": "artwork/misc.jpg"
-    }
-}
+MP3_ROOT = "mp3"
+FEED_ROOT = "feeds"
+DEFAULT_ARTWORK = f"{BASE_URL}/artwork/default.jpg"
 
-# =========================
-# FUNCTION TO GENERATE A FEED
-# =========================
+AUDIO_EXTENSIONS = (".mp3", ".m4a")
+
+# =====================
+# HELPERS
+# =====================
+
+def pretty_xml(elem):
+    rough = ElementTree(elem).write("temp.xml", encoding="utf-8", xml_declaration=True)
+    with open("temp.xml", "rb") as f:
+        reparsed = minidom.parse(f)
+    os.remove("temp.xml")
+    return reparsed.toprettyxml(indent="  ", encoding="utf-8")
+
+def stable_guid(show, filename, size):
+    base = f"{show}-{filename}-{size}"
+    return hashlib.md5(base.encode("utf-8")).hexdigest()
+
+def guess_mime(filename):
+    if filename.lower().endswith(".mp3"):
+        return "audio/mpeg"
+    if filename.lower().endswith(".m4a"):
+        return "audio/mp4"
+    return "application/octet-stream"
+
+def human_title(filename):
+    name = os.path.splitext(filename)[0]
+    return name.replace("_", " ").replace("-", " ").strip()
+
+# =====================
+# MAIN FEED GENERATOR
+# =====================
 
 def generate_feed(show):
-    print(f"\nGenerating feed for: {show}")
-    
-    os.makedirs("feeds", exist_ok=True)
+    show_path = os.path.join(MP3_ROOT, show)
+    feed_path = os.path.join(FEED_ROOT, f"{show}.xml")
 
-    # RSS root with iTunes namespace
-    rss = Element("rss", version="2.0", attrib={
+    audio_files = sorted(
+        f for f in os.listdir(show_path)
+        if f.lower().endswith(AUDIO_EXTENSIONS)
+    )
+
+    if not audio_files:
+        print(f"No audio files found for {show}")
+        return
+
+    rss = Element("rss", {
+        "version": "2.0",
         "xmlns:itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd"
     })
+
     channel = SubElement(rss, "channel")
 
-    # Channel metadata
-    SubElement(channel, "title").text = SHOWS[show]["title"]
-    SubElement(channel, "link").text = f"https://{USERNAME}.github.io/{REPO}/feeds/{show}.xml"
-    SubElement(channel, "description").text = SHOWS[show]["desc"]
-    SubElement(channel, "itunes:image", href=f"https://{USERNAME}.github.io/{REPO}/{SHOWS[show]['art']}")
+    SubElement(channel, "title").text = show
+    SubElement(channel, "link").text = BASE_URL
+    SubElement(channel, "language").text = "en-us"
+    SubElement(channel, "description").text = f"Private podcast feed for {show}"
+    SubElement(channel, "itunes:explicit").text = "no"
 
-    mp3_path = os.path.join("mp3", show)
-    if not os.path.exists(mp3_path):
-        print(f"Warning: folder not found: {mp3_path}")
-        files = []
-    else:
-        # Include both MP3 and M4A
-        files = sorted(f for f in os.listdir(mp3_path) if f.lower().endswith((".mp3", ".m4a")))
+    artwork_url = f"{BASE_URL}/artwork/{show}.jpg"
+    SubElement(channel, "itunes:image", href=artwork_url)
 
-    if not files:
-        print(f"No audio files found for {show} in {mp3_path}")
-    else:
-        print(f"Found {len(files)} audio file(s) for {show}: {files}")
+    now = datetime.datetime.utcnow()
 
-    for f in files:
+    for idx, filename in enumerate(audio_files, start=1):
+        file_path = os.path.join(show_path, filename)
+        file_size = os.path.getsize(file_path)
+        mime = guess_mime(filename)
+
         item = SubElement(channel, "item")
-        SubElement(item, "title").text = f.replace(".mp3", "").replace(".m4a", "")
-        
-        # Set MIME type based on extension
-        if f.lower().endswith(".mp3"):
-            mime = "audio/mpeg"
-        elif f.lower().endswith(".m4a"):
-            mime = "audio/mp4"
-        else:
-            mime = "application/octet-stream"
 
-        SubElement(item, "enclosure",
-                   url=f"https://{USERNAME}.github.io/{REPO}/{mp3_path.replace(os.sep, '/')}/{f}",
-                   type=mime)
-        SubElement(item, "guid").text = f"{show}-{f}"
+        title = human_title(filename)
+        SubElement(item, "title").text = title
 
-    xml_str = minidom.parseString(tostring(rss)).toprettyxml(indent="  ")
-    output_file = os.path.join("feeds", f"{show}.xml")
-    with open(output_file, "w", encoding="utf-8") as f_out:
-        f_out.write(xml_str)
-    print(f"Feed generated: {output_file}")
+        SubElement(item, "itunes:episode").text = str(idx)
+        SubElement(item, "itunes:title").text = title
 
-# =========================
-# MAIN
-# =========================
+        SubElement(item, "description").text = f"Episode {idx}: {title}"
+
+        guid_value = stable_guid(show, filename, file_size)
+        guid_el = SubElement(item, "guid")
+        guid_el.text = guid_value
+        guid_el.set("isPermaLink", "false")
+
+        pub_date = (now - datetime.timedelta(days=len(audio_files) - idx))
+        SubElement(item, "pubDate").text = pub_date.strftime(
+            "%a, %d %b %Y %H:%M:%S GMT"
+        )
+
+        enclosure_url = f"{BASE_URL}/{show_path.replace(os.sep, '/')}/{filename}"
+
+        SubElement(
+            item,
+            "enclosure",
+            url=enclosure_url,
+            length=str(file_size),
+            type=mime
+        )
+
+    xml_bytes = pretty_xml(rss)
+
+    with open(feed_path, "wb") as f:
+        f.write(xml_bytes)
+
+    print(f"Feed generated: {feed_path}")
+
+# =====================
+# ENTRY POINT
+# =====================
 
 if __name__ == "__main__":
-    for show in SHOWS:
-        generate_feed(show)
+    os.makedirs(FEED_ROOT, exist_ok=True)
+
+    for show in os.listdir(MP3_ROOT):
+        show_path = os.path.join(MP3_ROOT, show)
+        if os.path.isdir(show_path):
+            print(f"Generating feed for: {show}")
+            generate_feed(show)
+
     print("\nAll feeds generated successfully!")
+
 
