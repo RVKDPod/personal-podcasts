@@ -1,33 +1,37 @@
-import re
 import os
 import hashlib
 import datetime
+import re
 from xml.etree.ElementTree import Element, SubElement, ElementTree
 from xml.dom import minidom
 
 # =====================
 # CONFIG — EDIT THESE
 # =====================
-USERNAME = "RVKDPod"
+USERNAME = "YOUR_GITHUB_USERNAME"
 REPO = "personal-podcasts"
 BASE_URL = f"https://{USERNAME}.github.io/{REPO}"
 
 MP3_ROOT = "mp3"
 FEED_ROOT = "feeds"
-DEFAULT_ARTWORK = f"{BASE_URL}/artwork/default.jpg"
 
 AUDIO_EXTENSIONS = (".mp3", ".m4a")
 
 # =====================
-# HELPERS
+# XML PRETTY PRINTER
 # =====================
 
 def pretty_xml(elem):
-    rough = ElementTree(elem).write("temp.xml", encoding="utf-8", xml_declaration=True)
+    tree = ElementTree(elem)
+    tree.write("temp.xml", encoding="utf-8", xml_declaration=True)
     with open("temp.xml", "rb") as f:
-        reparsed = minidom.parse(f)
+        xml = minidom.parse(f)
     os.remove("temp.xml")
-    return reparsed.toprettyxml(indent="  ", encoding="utf-8")
+    return xml.toprettyxml(indent="  ", encoding="utf-8")
+
+# =====================
+# HELPERS
+# =====================
 
 def stable_guid(show, filename, size):
     base = f"{show}-{filename}-{size}"
@@ -42,10 +46,30 @@ def guess_mime(filename):
 
 def human_title(filename):
     name = os.path.splitext(filename)[0]
+    name = re.sub(r"\d{4}-\d{2}-\d{2}\s*[-_]\s*", "", name)
     return name.replace("_", " ").replace("-", " ").strip()
 
+def load_description(show_path, audio_file):
+    base = os.path.splitext(audio_file)[0]
+    txt_path = os.path.join(show_path, base + ".txt")
+
+    if os.path.exists(txt_path):
+        with open(txt_path, "r", encoding="utf-8") as f:
+            return f.read().strip()
+
+    return f"Episode: {human_title(audio_file)}"
+
+def extract_date(filename, file_path):
+    match = re.search(r"(\d{4})-(\d{2})-(\d{2})", filename)
+    if match:
+        y, m, d = match.groups()
+        return datetime.datetime(int(y), int(m), int(d))
+
+    ts = os.path.getctime(file_path)
+    return datetime.datetime.utcfromtimestamp(ts)
+
 # =====================
-# MAIN FEED GENERATOR
+# FEED GENERATION
 # =====================
 
 def generate_feed(show):
@@ -73,49 +97,44 @@ def generate_feed(show):
     SubElement(channel, "language").text = "en-us"
     SubElement(channel, "description").text = f"Private podcast feed for {show}"
     SubElement(channel, "itunes:explicit").text = "no"
-
-    artwork_url = f"{BASE_URL}/artwork/{show}.jpg"
-    SubElement(channel, "itunes:image", href=artwork_url)
-
-    now = datetime.datetime.utcnow()
+    SubElement(channel, "itunes:image", href=f"{BASE_URL}/artwork/{show}.jpg")
 
     for idx, filename in enumerate(audio_files, start=1):
         file_path = os.path.join(show_path, filename)
-	file_size = os.path.getsize(file_path)
-	mime = guess_mime(filename)
+        file_size = os.path.getsize(file_path)
+        mime = guess_mime(filename)
 
-	item = SubElement(channel, "item")
+        item = SubElement(channel, "item")
 
-	title = human_title(filename)
-	SubElement(item, "title").text = title
-	SubElement(item, "itunes:title").text = title
-	SubElement(item, "itunes:episode").text = str(idx)
+        title = human_title(filename)
+        SubElement(item, "title").text = title
+        SubElement(item, "itunes:title").text = title
+        SubElement(item, "itunes:episode").text = str(idx)
 
-	description = load_description(show_path, filename)
+        description = load_description(show_path, filename)
+        SubElement(item, "description").text = description
+        SubElement(item, "itunes:summary").text = description
+        SubElement(item, "itunes:subtitle").text = description[:255]
 
-	SubElement(item, "description").text = description
-	SubElement(item, "itunes:summary").text = description
-	SubElement(item, "itunes:subtitle").text = description[:255]
+        guid_value = stable_guid(show, filename, file_size)
+        guid_el = SubElement(item, "guid")
+        guid_el.text = guid_value
+        guid_el.set("isPermaLink", "false")
 
-	guid_value = stable_guid(show, filename, file_size)
-	guid_el = SubElement(item, "guid")
-	guid_el.text = guid_value
-	guid_el.set("isPermaLink", "false")
+        pub_date = extract_date(filename, file_path)
+        SubElement(item, "pubDate").text = pub_date.strftime(
+            "%a, %d %b %Y %H:%M:%S GMT"
+        )
 
-	pub_date = extract_date(filename, file_path)
-	SubElement(item, "pubDate").text = pub_date.strftime(
-	    "%a, %d %b %Y %H:%M:%S GMT"
-	)
+        enclosure_url = f"{BASE_URL}/{show_path.replace(os.sep, '/')}/{filename}"
 
-	enclosure_url = f"{BASE_URL}/{show_path.replace(os.sep, '/')}/{filename}"
-
-	SubElement(
-    	    item,
-    	    "enclosure",
-    	    url=enclosure_url,
-    	    length=str(file_size),
-    	    type=mime
-	)
+        SubElement(
+            item,
+            "enclosure",
+            url=enclosure_url,
+            length=str(file_size),
+            type=mime
+        )
 
     xml_bytes = pretty_xml(rss)
 
@@ -138,5 +157,3 @@ if __name__ == "__main__":
             generate_feed(show)
 
     print("\nAll feeds generated successfully!")
-
-
