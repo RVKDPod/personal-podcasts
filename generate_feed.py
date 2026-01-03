@@ -121,7 +121,8 @@ def generate_feed(show):
         guid_el.text = guid_value
         guid_el.set("isPermaLink", "false")
 
-        pub_date = extract_date(filename, file_path)
+        base_date = extract_date(filename, file_path)
+	pub_date = base_date + datetime.timedelta(minutes=idx)
         SubElement(item, "pubDate").text = pub_date.strftime(
             "%a, %d %b %Y %H:%M:%S GMT"
         )
