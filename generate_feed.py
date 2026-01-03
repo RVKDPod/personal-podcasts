@@ -8,7 +8,7 @@ from xml.dom import minidom
 # =====================
 # CONFIG — EDIT THESE
 # =====================
-USERNAME = "YOUR_GITHUB_USERNAME"
+USERNAME = "RVKDPod"
 REPO = "personal-podcasts"
 BASE_URL = f"https://{USERNAME}.github.io/{REPO}"
 

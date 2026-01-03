@@ -2,11 +2,11 @@
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
   <channel>
     <title>misc</title>
-    <link>https://YOUR_GITHUB_USERNAME.github.io/personal-podcasts</link>
+    <link>https://RVKDPod.github.io/personal-podcasts</link>
     <language>en-us</language>
     <description>Private podcast feed for misc</description>
     <itunes:explicit>no</itunes:explicit>
-    <itunes:image href="https://YOUR_GITHUB_USERNAME.github.io/personal-podcasts/artwork/misc.jpg"/>
+    <itunes:image href="https://RVKDPod.github.io/personal-podcasts/artwork/misc.jpg"/>
     <item>
       <title>Info Wars   Feb 21 2011</title>
       <itunes:title>Info Wars   Feb 21 2011</itunes:title>
@@ -16,7 +16,7 @@
       <itunes:subtitle>Alex Jones Info Wars from 02/11/2011</itunes:subtitle>
       <guid isPermaLink="false">7a4858f48768529af20042ef81843e92</guid>
       <pubDate>Sun, 28 Dec 2025 03:29:26 GMT</pubDate>
-      <enclosure url="https://YOUR_GITHUB_USERNAME.github.io/personal-podcasts/mp3/misc/Info Wars - Feb 21 2011.mp3" length="43050630" type="audio/mpeg"/>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/misc/Info Wars - Feb 21 2011.mp3" length="43050630" type="audio/mpeg"/>
     </item>
     <item>
       <title>Info Wars   Kanye</title>
@@ -27,7 +27,7 @@
       <itunes:subtitle>Alex Jones Info Wars with Kanye West</itunes:subtitle>
       <guid isPermaLink="false">839936e87cea95f2109d3d99ed18665e</guid>
       <pubDate>Sun, 28 Dec 2025 03:26:29 GMT</pubDate>
-      <enclosure url="https://YOUR_GITHUB_USERNAME.github.io/personal-podcasts/mp3/misc/Info Wars - Kanye.mp3" length="71483489" type="audio/mpeg"/>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/misc/Info Wars - Kanye.mp3" length="71483489" type="audio/mpeg"/>
     </item>
     <item>
       <title>The Big Lie   Stone Choir</title>
@@ -38,7 +38,7 @@
       <itunes:subtitle>The Big Lie, Stone Choir. Episode Deleted from all Platforms.</itunes:subtitle>
       <guid isPermaLink="false">e7035144fad28940f7f90f07ef68f34f</guid>
       <pubDate>Fri, 19 Dec 2025 04:47:17 GMT</pubDate>
-      <enclosure url="https://YOUR_GITHUB_USERNAME.github.io/personal-podcasts/mp3/misc/The Big Lie - Stone Choir.m4a" length="33204077" type="audio/mp4"/>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/misc/The Big Lie - Stone Choir.m4a" length="33204077" type="audio/mp4"/>
     </item>
     <item>
       <title>The Complete History of Rhodesia 1</title>
@@ -49,7 +49,7 @@
       <itunes:subtitle>The Complete History of Rhodesia 1 - By Zoomer Historian</itunes:subtitle>
       <guid isPermaLink="false">58d6a287be1af44e221789be57f59cdb</guid>
       <pubDate>Sun, 28 Dec 2025 04:07:19 GMT</pubDate>
-      <enclosure url="https://YOUR_GITHUB_USERNAME.github.io/personal-podcasts/mp3/misc/The Complete History of Rhodesia 1.mp3" length="56370956" type="audio/mpeg"/>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/misc/The Complete History of Rhodesia 1.mp3" length="56370956" type="audio/mpeg"/>
     </item>
     <item>
       <title>The Complete History of Rhodesia 2</title>
@@ -60,7 +60,7 @@
       <itunes:subtitle>The Complete History of Rhodesia 2 - By Zoomer Historian</itunes:subtitle>
       <guid isPermaLink="false">ce8c600f83ccf325480e77817e5756c7</guid>
       <pubDate>Sun, 28 Dec 2025 04:04:08 GMT</pubDate>
-      <enclosure url="https://YOUR_GITHUB_USERNAME.github.io/personal-podcasts/mp3/misc/The Complete History of Rhodesia 2.mp3" length="61236914" type="audio/mpeg"/>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/misc/The Complete History of Rhodesia 2.mp3" length="61236914" type="audio/mpeg"/>
     </item>
   </channel>
 </rss>

@@ -2,11 +2,11 @@
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
   <channel>
     <title>sam-hyde</title>
-    <link>https://YOUR_GITHUB_USERNAME.github.io/personal-podcasts</link>
+    <link>https://RVKDPod.github.io/personal-podcasts</link>
     <language>en-us</language>
     <description>Private podcast feed for sam-hyde</description>
     <itunes:explicit>no</itunes:explicit>
-    <itunes:image href="https://YOUR_GITHUB_USERNAME.github.io/personal-podcasts/artwork/sam-hyde.jpg"/>
+    <itunes:image href="https://RVKDPod.github.io/personal-podcasts/artwork/sam-hyde.jpg"/>
     <item>
       <title>Black Wisdom W Myron Gaines</title>
       <itunes:title>Black Wisdom W Myron Gaines</itunes:title>
@@ -16,7 +16,7 @@
       <itunes:subtitle>The Sam Hyde Show: Black Wisdom w/ Myron Gaines - 12/13/2025</itunes:subtitle>
       <guid isPermaLink="false">2e6ba96bb4a9dc99cd75ef6a5eeae856</guid>
       <pubDate>Fri, 19 Dec 2025 04:47:17 GMT</pubDate>
-      <enclosure url="https://YOUR_GITHUB_USERNAME.github.io/personal-podcasts/mp3/sam-hyde/Black Wisdom W Myron Gaines.mp3" length="26901857" type="audio/mpeg"/>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/sam-hyde/Black Wisdom W Myron Gaines.mp3" length="26901857" type="audio/mpeg"/>
     </item>
     <item>
       <title>Feminist Debate</title>
@@ -27,7 +27,7 @@
       <itunes:subtitle>The Feminist Debate - 12/20/2025</itunes:subtitle>
       <guid isPermaLink="false">2620fc642bfbe8ba1f4eb379ef106750</guid>
       <pubDate>Wed, 24 Dec 2025 22:10:09 GMT</pubDate>
-      <enclosure url="https://YOUR_GITHUB_USERNAME.github.io/personal-podcasts/mp3/sam-hyde/Feminist Debate.mp3" length="39598117" type="audio/mpeg"/>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/sam-hyde/Feminist Debate.mp3" length="39598117" type="audio/mpeg"/>
     </item>
     <item>
       <title>Nick Fuentes</title>
@@ -38,7 +38,7 @@
       <itunes:subtitle>Sam Hyde Show: Nick Fuentes</itunes:subtitle>
       <guid isPermaLink="false">79d492a67a9c6542454ca0bf8ee9dd52</guid>
       <pubDate>Fri, 19 Dec 2025 04:47:17 GMT</pubDate>
-      <enclosure url="https://YOUR_GITHUB_USERNAME.github.io/personal-podcasts/mp3/sam-hyde/Nick Fuentes.mp3" length="28931269" type="audio/mpeg"/>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/sam-hyde/Nick Fuentes.mp3" length="28931269" type="audio/mpeg"/>
     </item>
     <item>
       <title>Sports Ball W John Rocker</title>
@@ -49,7 +49,7 @@
       <itunes:subtitle>The Sam Hyde Show: Sportsball w/ John Rocker - 11/22/2025</itunes:subtitle>
       <guid isPermaLink="false">07132b1b395ce64f4fc52a5b3c93cac4</guid>
       <pubDate>Fri, 19 Dec 2025 04:47:17 GMT</pubDate>
-      <enclosure url="https://YOUR_GITHUB_USERNAME.github.io/personal-podcasts/mp3/sam-hyde/Sports Ball W John Rocker.mp3" length="26520420" type="audio/mpeg"/>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/sam-hyde/Sports Ball W John Rocker.mp3" length="26520420" type="audio/mpeg"/>
     </item>
     <item>
       <title>This Is You</title>
@@ -60,7 +60,7 @@
       <itunes:subtitle>Sam Hyde Show: This is You - 09/14/2025</itunes:subtitle>
       <guid isPermaLink="false">416c4a8990e6da087b3e430fb318907b</guid>
       <pubDate>Fri, 19 Dec 2025 04:47:17 GMT</pubDate>
-      <enclosure url="https://YOUR_GITHUB_USERNAME.github.io/personal-podcasts/mp3/sam-hyde/This Is You.mp3" length="28284829" type="audio/mpeg"/>
+      <enclosure url="https://RVKDPod.github.io/personal-podcasts/mp3/sam-hyde/This Is You.mp3" length="28284829" type="audio/mpeg"/>
     </item>
   </channel>
 </rss>
